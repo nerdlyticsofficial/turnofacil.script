@@ -1,0 +1,17 @@
+[Unit]
+Description=Monitorear y ejecutar Node.js cuando haya internet
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+ExecStart=/usr/local/bin/internet-tts-monitor.sh
+Restart=always
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+Environment=PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin
+
+[Install]
+WantedBy=multi-user.target
+
+# /etc/systemd/system/internet-tts-monitor.service
